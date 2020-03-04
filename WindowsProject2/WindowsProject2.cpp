@@ -40,5 +40,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     ShowWindow(hwnd, iCmdShow);
 
     while (true);
+
     return 0;
 }
