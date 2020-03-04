@@ -2,6 +2,7 @@
 
 //该程序实现了显示窗口的最简代码，其中并不涉及任何消息调用。
 //在wMinMain函数返回直接while(true)，会阻止窗口因为主函数退出而造成的闪退
+//这是github的测试版本
 
 //ASCII码版的调用WinMain，Unicode调用wWinMain
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
