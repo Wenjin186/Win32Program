@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WindowsProject2", "WindowsProject2\WindowsProject2.vcxproj", "{B1AD5129-C367-4B93-BCF7-AB7CC90C4D0B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "001最小窗口实例", "WindowsProject2\WindowsProject2.vcxproj", "{B1AD5129-C367-4B93-BCF7-AB7CC90C4D0B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloWin", "HelloWin\HelloWin.vcxproj", "{C5E95FBD-8DB6-4719-B204-8983B7400AE0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "002带消息的窗口", "002带消息的窗口\002带消息的窗口.vcxproj", "{DF2152C4-0969-44B9-90E8-FF627DC0C2EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,14 @@ Global
 		{C5E95FBD-8DB6-4719-B204-8983B7400AE0}.Release|x64.ActiveCfg = Release|Win32
 		{C5E95FBD-8DB6-4719-B204-8983B7400AE0}.Release|x86.ActiveCfg = Release|Win32
 		{C5E95FBD-8DB6-4719-B204-8983B7400AE0}.Release|x86.Build.0 = Release|Win32
+		{DF2152C4-0969-44B9-90E8-FF627DC0C2EB}.Debug|x64.ActiveCfg = Debug|x64
+		{DF2152C4-0969-44B9-90E8-FF627DC0C2EB}.Debug|x64.Build.0 = Debug|x64
+		{DF2152C4-0969-44B9-90E8-FF627DC0C2EB}.Debug|x86.ActiveCfg = Debug|Win32
+		{DF2152C4-0969-44B9-90E8-FF627DC0C2EB}.Debug|x86.Build.0 = Debug|Win32
+		{DF2152C4-0969-44B9-90E8-FF627DC0C2EB}.Release|x64.ActiveCfg = Release|x64
+		{DF2152C4-0969-44B9-90E8-FF627DC0C2EB}.Release|x64.Build.0 = Release|x64
+		{DF2152C4-0969-44B9-90E8-FF627DC0C2EB}.Release|x86.ActiveCfg = Release|Win32
+		{DF2152C4-0969-44B9-90E8-FF627DC0C2EB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
