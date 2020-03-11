@@ -1,5 +1,7 @@
 ﻿#include <Windows.h>
 
+LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
+
 int wWinMain(HINSTANCE hInstance, HINSTANCE, PTSTR szCmdLine, int iCmdShow) {
 
 	TCHAR className[] = TEXT("Message Window");
@@ -17,7 +19,7 @@ int wWinMain(HINSTANCE hInstance, HINSTANCE, PTSTR szCmdLine, int iCmdShow) {
 	wndclass.lpszMenuName = NULL;
 	wndclass.lpszClassName = className;
 	wndclass.style = CS_HREDRAW | CS_VREDRAW;
-	wndclass.lpfnWndProc = DefWindowProc;
+	wndclass.lpfnWndProc = WndProc;
 
 	RegisterClass(&wndclass);
 
@@ -25,6 +27,7 @@ int wWinMain(HINSTANCE hInstance, HINSTANCE, PTSTR szCmdLine, int iCmdShow) {
 		CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, NULL, NULL, hInstance, NULL);
 
 	ShowWindow(hwnd, iCmdShow);
+	UpdateWindow(hwnd);
 
 	while (GetMessage(&msg, NULL, 0, 0)) {
 		TranslateMessage(&msg);
@@ -32,4 +35,19 @@ int wWinMain(HINSTANCE hInstance, HINSTANCE, PTSTR szCmdLine, int iCmdShow) {
 	}
 
 	return msg.wParam;
+}
+
+LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+    HDC         hdc;
+    PAINTSTRUCT ps;
+    RECT        rect;
+
+    switch (message)
+    {
+    case WM_DESTROY:
+        PostQuitMessage(0);
+        return 0;
+    }
+    return DefWindowProc(hwnd, message, wParam, lParam);
 }
