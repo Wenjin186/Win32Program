@@ -81,7 +81,7 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
          hdc = GetDC(hwnd);
          ValidateRect(hwnd, NULL);
 
-          if (temp == 0) {
+          
               for (i = 0; i < NUMLINES; i++)
               {
                   TextOut(hdc, 0, cyChar * i,
@@ -100,7 +100,7 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 
                   SetTextAlign(hdc, TA_LEFT | TA_TOP);
               }
-          }
+          
           //EndPaint (hwnd, &ps) ;
           ReleaseDC(hwnd, hdc);
           temp++;

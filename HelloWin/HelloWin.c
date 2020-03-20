@@ -48,6 +48,14 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance,
      ShowWindow (hwnd, iCmdShow) ;
      UpdateWindow (hwnd) ;
      
+     int sm = GetSystemMetrics(SM_CXSCREEN); //这里返回1536的原因是因为屏幕显示设置，乘以了一个125%（推荐）。
+
+     //GetTextMetrics,程序获取字体尺寸, tmHeight = tmAscent + tmDescent 图见Windows程序设计第五版 73页
+     TEXTMETRIC tm;
+     HDC hdc = GetDC(hwnd);
+     GetTextMetrics(hdc, &tm);
+     ReleaseDC(hwnd, hdc);
+
      while (GetMessage (&msg, NULL, 0, 0))
      {
           TranslateMessage (&msg) ;
@@ -71,11 +79,14 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
      case WM_PAINT:
           hdc = BeginPaint (hwnd, &ps) ;
           
-          GetClientRect (hwnd, &rect) ;
+          //GetClientRect (hwnd, &rect) ;
           
-          DrawText (hdc, TEXT ("Hello, Windows 98!"), -1, &rect,
-                    DT_SINGLELINE | DT_CENTER | DT_VCENTER) ;
+          //DrawText (hdc, TEXT ("Hello, Windows 98!"), -1, &rect,
+          //          DT_SINGLELINE | DT_CENTER | DT_VCENTER) ;
           
+          TextOut(hdc, 10, 10, TEXT("Hello world"), 4);
+
+
           EndPaint (hwnd, &ps) ;
           return 0 ;
           

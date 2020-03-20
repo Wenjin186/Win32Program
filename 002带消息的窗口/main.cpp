@@ -1,4 +1,5 @@
 ﻿#include <Windows.h>
+#include <stdio.h>
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -14,7 +15,7 @@ int wWinMain(HINSTANCE hInstance, HINSTANCE, PTSTR szCmdLine, int iCmdShow) {
 	wndclass.cbWndExtra = 0;
 	wndclass.hInstance = hInstance;
 	wndclass.hIcon = NULL;
-	wndclass.hCursor = NULL;
+	wndclass.hCursor = LoadCursor(NULL, IDC_WAIT);
 	wndclass.hbrBackground = NULL;
 	wndclass.lpszMenuName = NULL;
 	wndclass.lpszClassName = className;
@@ -30,7 +31,13 @@ int wWinMain(HINSTANCE hInstance, HINSTANCE, PTSTR szCmdLine, int iCmdShow) {
 	UpdateWindow(hwnd);
 
 	while (GetMessage(&msg, NULL, 0, 0)) {
+		//MessageBox(hwnd, TEXT("haha"), TEXT("haha"), MB_OK);
 		TranslateMessage(&msg);
+
+		if (msg.message == WM_KEYDOWN) {
+			printf("hellofffff\n");
+		}
+
 		DispatchMessage(&msg);
 	}
 
@@ -39,6 +46,11 @@ int wWinMain(HINSTANCE hInstance, HINSTANCE, PTSTR szCmdLine, int iCmdShow) {
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+	//printf("%d\n", message);
+	//printf("=====\n");
+	if (message == WM_KEYDOWN) {
+		printf("WinProc hellofffff\n");
+	}
     HDC         hdc;
     PAINTSTRUCT ps;
     RECT        rect;
@@ -50,4 +62,11 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
         return 0;
     }
     return DefWindowProc(hwnd, message, wParam, lParam);
+}
+
+int wmain() {
+
+	wWinMain(GetModuleHandle(NULL), NULL, NULL, SW_SHOWNORMAL);
+
+	return 0;
 }

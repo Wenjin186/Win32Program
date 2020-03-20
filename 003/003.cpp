@@ -8,6 +8,14 @@ using namespace std;
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
+int CreateMyWin2() {
+	WNDCLASS wndclass;
+
+	memset(&wndclass, 0, sizeof(wndclass));
+	wndclass.hInstance = GetModuleHandle(NULL);
+
+}
+
 int CreateMyWin() {
 
 	TCHAR className[] = TEXT("Message Window");
